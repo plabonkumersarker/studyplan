@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Civil Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #444;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .schedule {
+            margin: 20px 0;
+        }
+        .schedule ul {
+            list-style: none;
+            padding: 0;
+        }
+        .schedule ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #eef3fa;
+            border-radius: 4px;
+        }
+        .schedule ul li:hover {
+            background: #d8e7f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bangladesh Civil Service</h1>
+        <div id="content" class="schedule">
+            <!-- Content -->
+        </div>
+    </div>
+    <script>
+        const dayNames = [
+            "Sunday (রবিবার)", "Monday (সোমাবার)", "Tuesday (মঙ্গলবার)", "Wednesday (বুধবার)", 
+            "Thursday (বৃহস্পতিবার)", "Friday (শুক্রবার)", "Saturday (শনিবার)"
+        ];
+        const schedules = {
+            default: `
+                <ul>
+                    <li>6:30 AM - 7:00 AM: Physical Exercise & Breakfast – Boost energy for the day.</li>
+                    <li>7:00 AM - 9:00 AM: Bengali – Focus on grammar, writing style, and MCQs.</li>
+                    <li>9:00 AM - 9:15 AM: Break – Refresh yourself.</li>
+                    <li>9:15 AM - 10:45 AM: English – Practice vocabulary, sentence correction, and comprehension.</li>
+                    <li>10:45 AM - 11:30 AM: Bangladesh Affairs – Study key events, constitution, and history.</li>
+                    <li>11:30 AM - 12:30 PM: Science – Review physics, biology basics, and focus on MCQs.</li>
+                    <li>12:30 PM - 2:00 PM: Lunch & Rest – Recharge for the second half.</li>
+                    <li>2:00 PM - 3:30 PM: Mathematics – Practice problem-solving and formulas.</li>
+                    <li>3:30 PM - 4:15 PM: International Affairs – Focus on global events, UN bodies, and treaties.</li>
+                    <li>4:15 PM - 4:45 PM: Snack/Relaxation – Refresh your mind.</li>
+                    <li>4:45 PM - 6:00 PM: ICT – Study computer basics, internet concepts, and practical MCQs.</li>
+                    <li>6:00 PM - 7:15 PM: Mental Ability – Solve logical reasoning, puzzles, and shortcuts.</li>
+                    <li>7:15 PM - 7:45 PM: Break/Dinner – Recharge yourself.</li>
+                    <li>7:45 PM - 9:00 PM: Geography & Others – Study maps, climate, and world geography.</li>
+                    <li>9:00 PM - 9:45 PM: Revision (Daily Topics) – Review what you learned today.</li>
+                    <li>9:45 PM - 10:15 PM: Free Time – Relax before bed.</li>
+                    <li>10:15 PM: Sleep – Get 7-8 hours of rest.</li>
+                </ul>`,
+            Thursday: `
+                <ul>
+                    <li>6:30 AM - 7:30 AM: Mock Test (mini) – Simulate exam conditions.</li>
+                    <li>7:30 AM - 8:30 AM: Breakfast & Relax – Recharge after the test.</li>
+                    <li>8:30 AM - 11:30 AM: Review Mock Test Answers – Analyze mistakes and review weak areas.</li>
+                    <li>11:30 AM - 1:00 PM: Bangladesh Affairs – Deep dive into history or current events.</li>
+                    <li>1:00 PM - 2:30 PM: Lunch & Rest – Recharge for the second half.</li>
+                    <li>2:30 PM - 4:00 PM: Bengali & English – Focus on writing and reading.</li>
+                    <li>4:00 PM - 4:30 PM: Snack – Relax.</li>
+                    <li>4:30 PM - 6:00 PM: Science & ICT – Practice conceptual and practical questions.</li>
+                    <li>6:00 PM - 8:00 PM: Relax/Dinner – Take a break.</li>
+                    <li>8:00 PM - 9:00 PM: Revision (Entire Week) – Consolidate what you learned this week.</li>
+                </ul>`,
+            Friday: `
+                <ul>
+                    <li>6:30 AM - 8:30 AM: General Revision – Cover weak topics.</li>
+                    <li>8:30 AM - 10:00 AM: Mathematics & Mental Ability – Quick practice.</li>
+                    <li>10:00 AM - 12:30 PM: International Affairs & Geography – Focus on important facts.</li>
+                    <li>12:30 PM - 1:30 PM: Lunch & Rest – Recharge.</li>
+                    <li>1:30 PM - 3:30 PM: Mock Test (full) – Practice time management.</li>
+                    <li>3:30 PM - 4:30 PM: Analyze Mock Test – Review mistakes.</li>
+                    <li>4:30 PM - 6:00 PM: Bengali & English – Focus on writing and comprehension.</li>
+                    <li>6:00 PM Onwards: Relaxation or Free Time – Prepare for the week ahead.</li>
+                </ul>`
+        };
+
+        const today = new Date().getDay();
+        const todayName = dayNames[today];
+        const content = document.getElementById("content");
+
+        if (today === 4) {
+            content.innerHTML = `<h2>${todayName}: Mock Test & Review Day</h2>${schedules.Thursday}`;
+        } else if (today === 5) {
+            content.innerHTML = `<h2>${todayName}: Light Study & Review</h2>${schedules.Friday}`;
+        } else {
+            content.innerHTML = `<h2>${todayName}: Core Study Day</h2>${schedules.default}`;
+        }
+    </script>
+</body>
+</html>
